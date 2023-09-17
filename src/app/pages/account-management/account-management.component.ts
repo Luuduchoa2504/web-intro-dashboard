@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {EmailService} from "@pages/email-management/services/email.service";
+import {AccountService} from "@pages/account-management/services/account.service";
 
 @Component({
   selector: 'app-account-management',
@@ -7,18 +7,17 @@ import {EmailService} from "@pages/email-management/services/email.service";
   styleUrls: ['./account-management.component.scss']
 })
 export class AccountManagementComponent {
-  emails: any[] = [];
+  users: any[] = [];
 
-  constructor(private emailService: EmailService) { }
+  constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
     this.getData();
   }
 
   getData() {
-    this.emailService.getData().subscribe((res) => {
-      this.emails = res;
-      console.log(res);
+    this.accountService.getData().subscribe((res) => {
+      this.users = res;
     });
   }
 

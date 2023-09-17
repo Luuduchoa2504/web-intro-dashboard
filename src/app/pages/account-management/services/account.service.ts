@@ -13,6 +13,6 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   getData(): Observable<any> {
-    return this.http.get(`${this.resourceUrl}/api/email`);
+    return this.http.get(`${this.resourceUrl}/api/getAllUsers`);
   }
 }

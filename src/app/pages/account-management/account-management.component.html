@@ -14,13 +14,13 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let email of emails; let i = index">
+      <tr *ngFor="let user of users; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ email.name }}</td>
-        <td>{{ email.email }}</td>
-        <td>{{ email.phone }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
         <td>
-          <button class="btn btn-danger btn-sm" (click)="onDelete(email.id)">
+          <button class="btn btn-danger btn-sm" (click)="onDelete(user._id)">
             <i class="fas fa-trash"></i>
           </button>
         </td>
