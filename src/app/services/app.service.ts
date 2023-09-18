@@ -2,14 +2,18 @@ import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {Gatekeeper} from 'gatekeeper-client-sdk';
+import { Constants } from '@/helpers/constants';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AppService {
     public user: any = null;
+    public resourceUrl = `${Constants.SERVER_API_URL}`;
 
-    constructor(private router: Router, private toastr: ToastrService) {}
+    constructor(private router: Router, private toastr: ToastrService, private http: HttpClient) {}
 
     async loginByAuth({email, password}) {
         try {
@@ -33,6 +37,14 @@ export class AppService {
         } catch (error) {
             this.toastr.error(error.message);
         }
+    }
+
+    login(email: string | null | undefined, password: string | null | undefined) {
+        return this.http.post(`${this.resourceUrl}/api/login`, {email, password});
+    }
+
+    register(req?: any): Observable<any> {
+        return this.http.post(`${this.resourceUrl}/api/register`, req);
     }
 
     async loginByGoogle() {

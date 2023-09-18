@@ -13,6 +13,6 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   getData(): Observable<any> {
-    return this.http.get(`${this.resourceUrl}/api/getAllAdmins`);
+    return this.http.get(`${this.resourceUrl}/api/admin/getAll`);
   }
 }

@@ -50,6 +50,13 @@ export class RegisterComponent implements OnInit, OnDestroy {
         }
     }
 
+    register() {
+        if (this.registerForm.valid) {
+            this.isAuthLoading = true;
+            
+        }
+    }
+
     async registerByGoogle() {
         this.isGoogleLoading = true;
         await this.appService.registerByGoogle();

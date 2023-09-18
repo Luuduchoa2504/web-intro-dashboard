@@ -52,12 +52,12 @@ export const MENU = [
                 path: ['/email-management']
             },
             {
-                name: 'User',
+                name: 'User Registered',
                 iconClasses: 'far fa-user',
                 path: ['/account-management']
             },
             {
-                name: 'Admin',
+                name: 'User Internal',
                 iconClasses: 'ion ion-person',
                 path: ['/admin-management']
             }
