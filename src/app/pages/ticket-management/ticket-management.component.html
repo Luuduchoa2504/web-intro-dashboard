@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Table Example</h3>
+    </div>
+    <div class="card-body">
+      <table id="dataTable" class="table table-bordered">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Content</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ticket of tickets; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ ticket.name }}</td>
+          <td>{{ ticket.email }}</td>
+          <td>{{ ticket.phone }}</td>
+          <td>{{ ticket.content }}</td>
+          <td>{{ ticket.status }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="onDelete(ticket._id)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+  
+        </tr>
+        <!-- Add more rows as needed -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

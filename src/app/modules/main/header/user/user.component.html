@@ -2,7 +2,7 @@
     <div slot="button">
         <a class="nav-link">
             <pf-image
-                [src]="user.picture"
+                [src]="user?.picture"
                 fallback-src="assets/img/default-profile.png"
                 class="user-image-small"
                 width="25"
@@ -15,7 +15,7 @@
     <div slot="menu">
         <li class="user-header bg-primary">
             <pf-image
-                [src]="user.picture"
+                [src]="user?.picture"
                 fallback-src="assets/img/default-profile.png"
                 class="user-image-big"
                 alt="User Image"
@@ -49,7 +49,7 @@
         </li>
         <!-- Menu Footer-->
         <li class="user-footer">
-            <a [routerLink]="['/profile']" class="btn btn-default btn-flat">
+            <a [routerLink]="['/info']" class="btn btn-default btn-flat">
                 Profile
             </a>
             <a (click)="logout()" class="btn btn-default btn-flat float-right">

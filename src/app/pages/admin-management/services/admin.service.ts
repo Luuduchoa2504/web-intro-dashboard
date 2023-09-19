@@ -15,4 +15,12 @@ export class AdminService {
   getData(): Observable<any> {
     return this.http.get(`${this.resourceUrl}/api/admin/getAll`);
   }
+
+  create(user: any): Observable<any> {
+    return this.http.post(`${this.resourceUrl}/create`, user);
+  }
+
+  delete(id: any): Observable<any> {
+    return this.http.delete(`${this.resourceUrl}/api/delete/${id}`)
+  }
 }

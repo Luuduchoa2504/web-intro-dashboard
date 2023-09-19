@@ -15,6 +15,7 @@ import {SubMenuComponent} from '@pages/main-menu/sub-menu/sub-menu.component';
 import { EmailManagementComponent } from '@pages/email-management/email-management.component';
 import { AccountManagementComponent } from '@pages/account-management/account-management.component';
 import { AdminManagementComponent } from '@pages/admin-management/admin-management.component';
+import { TicketManagementComponent } from '@pages/ticket-management/ticket-management.component';
 
 const routes: Routes = [
     {
@@ -46,6 +47,10 @@ const routes: Routes = [
             {
                 path: 'email-management',
                 component: EmailManagementComponent
+            },
+            {
+                path: 'ticket-management',
+                component: TicketManagementComponent
             },
             {
                 path: 'account-management',

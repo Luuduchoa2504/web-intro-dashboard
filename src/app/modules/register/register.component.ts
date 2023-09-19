@@ -35,8 +35,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
         );
         this.registerForm = new UntypedFormGroup({
             email: new UntypedFormControl(null, Validators.required),
+            name: new UntypedFormControl(null, Validators.required),
+            phone: new UntypedFormControl(null, Validators.required),
             password: new UntypedFormControl(null, [Validators.required]),
-            retypePassword: new UntypedFormControl(null, [Validators.required])
+            retypePassword: new UntypedFormControl(null, [Validators.required]),
         });
     }
 
@@ -51,9 +53,17 @@ export class RegisterComponent implements OnInit, OnDestroy {
     }
 
     register() {
+        const newAdmin = {
+            name: this.registerForm.get('name')?.value,
+            email: this.registerForm.get('email')?.value,
+            phone: this.registerForm.get('phone')?.value,
+            password: this.registerForm.get('password')?.value,
+            confirmPassword: this.registerForm.get('retypePassword')?.value,
+            role: 1,
+        }
         if (this.registerForm.valid) {
             this.isAuthLoading = true;
-            
+            this.appService.register(newAdmin).subscribe();
         }
     }
 

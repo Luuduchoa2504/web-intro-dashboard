@@ -52,6 +52,11 @@ export const MENU = [
                 path: ['/email-management']
             },
             {
+                name: 'Ticket',
+                iconClasses: 'far fa-file',
+                path: ['/ticket-management']
+            },
+            {
                 name: 'User Registered',
                 iconClasses: 'far fa-user',
                 path: ['/account-management']

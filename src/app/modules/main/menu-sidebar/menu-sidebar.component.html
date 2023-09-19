@@ -18,7 +18,6 @@
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
             <pf-image
-                [src]="user.picture"
                 fallback-src="assets/img/default-profile.png"
                 class="img-circle"
                 alt="User Image"
@@ -28,7 +27,7 @@
             ></pf-image>
         </div>
         <div class="info">
-            <a [routerLink]="['/profile']" class="d-block">
+            <a [routerLink]="['/info']" class="d-block">
                 {{ user.email }}
             </a>
         </div>

@@ -4,12 +4,18 @@ import {ToastrService} from 'ngx-toastr';
 import {Gatekeeper} from 'gatekeeper-client-sdk';
 import { Constants } from '@/helpers/constants';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AppService {
+    private httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          Authorization: '',
+        }),
+    };
     public user: any = null;
     public resourceUrl = `${Constants.SERVER_API_URL}`;
 
@@ -39,12 +45,23 @@ export class AppService {
         }
     }
 
-    login(email: string | null | undefined, password: string | null | undefined) {
+    login({email, password}) {
         return this.http.post(`${this.resourceUrl}/api/login`, {email, password});
     }
 
     register(req?: any): Observable<any> {
         return this.http.post(`${this.resourceUrl}/api/register`, req);
+    }
+
+    getAdminProfile() {
+        this.httpOptions.headers = this.httpOptions.headers.set(
+            'Authorization',
+            localStorage.getItem('token')
+          );
+          console.log('b', this.http.get(`${this.resourceUrl}/api/info`, this.httpOptions));
+          
+          
+        return this.user = this.http.get(`${this.resourceUrl}/api/info`, this.httpOptions);
     }
 
     async loginByGoogle() {

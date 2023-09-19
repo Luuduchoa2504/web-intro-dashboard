@@ -37,6 +37,7 @@ import {SidebarSearchComponent} from './components/sidebar-search/sidebar-search
 import { EmailManagementComponent } from './pages/email-management/email-management.component';
 import { AccountManagementComponent } from './pages/account-management/account-management.component';
 import { AdminManagementComponent } from './pages/admin-management/admin-management.component';
+import { TicketManagementComponent } from './pages/ticket-management/ticket-management.component';
 
 registerLocaleData(localeEn, 'en-EN');
 
@@ -65,7 +66,8 @@ registerLocaleData(localeEn, 'en-EN');
         SidebarSearchComponent,
         EmailManagementComponent,
         AccountManagementComponent,
-        AdminManagementComponent
+        AdminManagementComponent,
+        TicketManagementComponent
     ],
     imports: [
         ProfabricComponentsModule,

@@ -24,7 +24,8 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         | Promise<boolean | UrlTree>
         | boolean
         | UrlTree {
-        return this.getProfile();
+        return this.getProfile(state);
+        return true;
     }
 
     canActivateChild(
@@ -39,13 +40,19 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         return true;
     }
 
-    async getProfile() {
+    async getProfile(state: RouterStateSnapshot) {
+        console.log(this.appService.user);
+        
         if (this.appService.user) {
+            if (this.appService.user.role === 1 && state.url.includes("account")) {
+                this.router.navigate(["/"])
+            }
             return true;
+            
         }
-
         try {
-            await this.appService.getProfile();
+            const userProfile = await this.appService.getAdminProfile().toPromise();
+            console.log("user",userProfile);
             return true;
         } catch (error) {
             return false;
