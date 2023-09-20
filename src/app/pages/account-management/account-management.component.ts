@@ -22,6 +22,11 @@ export class AccountManagementComponent {
   }
 
   onDelete(id) {
-
+    this.accountService.delete(id).subscribe((res) => {
+      console.log(res);
+      
+    })
   }
+
+  onCreate() {}
 }

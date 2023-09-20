@@ -15,4 +15,8 @@ export class AccountService {
   getData(): Observable<any> {
     return this.http.get(`${this.resourceUrl}/api/user/getAll`);
   }
+
+  delete(id) {
+    return this.http.delete(`${this.resourceUrl}/api/delete/${id}`);
+  }
 }

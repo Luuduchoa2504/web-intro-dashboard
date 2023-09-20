@@ -24,6 +24,12 @@
           <td>{{ ticket.content }}</td>
           <td>{{ ticket.status }}</td>
           <td>
+            <button class="btn btn-primary btn-sm" (click)="onCreate()">
+              <i class="fas fa-plus"></i>
+            </button>
+            <button class="btn btn-primary btn-sm" (click)="onCreate()">
+              <i class="fas fa-edit"></i>
+            </button>
             <button class="btn btn-danger btn-sm" (click)="onDelete(ticket._id)">
               <i class="fas fa-trash"></i>
             </button>

@@ -26,6 +26,10 @@ export class EmailManagementComponent {
     });
   }
 
+  onCreate() {
+    
+  }
+
   onDelete(id) {
     // console.log(id);
     this.emailService.delete(id).subscribe((res) => {

@@ -24,4 +24,6 @@ export class TicketManagementComponent {
   onDelete(id) {
     
   }
+
+  onCreate() {}
 }

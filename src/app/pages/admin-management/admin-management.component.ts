@@ -24,4 +24,6 @@ export class AdminManagementComponent {
   onDelete(id) {
 
   }
+
+  onCreate() {}
 }
