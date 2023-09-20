@@ -50,7 +50,6 @@ export class EmailManagementComponent {
         email: this.emails[index]
       }
     }).afterClosed().subscribe((res) => {
-      console.log(res)
       this.emailService.edit(res).subscribe(() => {
         this.toast.success('Cập nhật thành công', 'Thành công')
         this.loadData()

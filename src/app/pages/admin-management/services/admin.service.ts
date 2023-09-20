@@ -16,11 +16,30 @@ export class AdminService {
     return this.http.get(`${this.resourceUrl}/api/admin/getAll`);
   }
 
-  create(user: any): Observable<any> {
-    return this.http.post(`${this.resourceUrl}/create`, user);
+  delete(id: any): Observable<any> {
+    return this.http.delete(`${this.resourceUrl}/api/user/${id}`)
   }
 
-  delete(id: any): Observable<any> {
-    return this.http.delete(`${this.resourceUrl}/api/delete/${id}`)
+  create(req : any) {
+    const payload = {
+      email: req.email,
+      name: req.name,
+      phone: req.phone,
+      role: req.role,
+      password: req.password
+    }
+    return this.http.post(`${this.resourceUrl}/api/create`, payload)
+  }
+
+  edit(req: any) {
+    const payload = {
+      _id: req._id,
+      email: req.email,
+      name: req.name,
+      phone: req.phone,
+      role: req.role,
+      password: req.password
+    }
+    return this.http.put(`${this.resourceUrl}/api/user/${req._id}`, payload)
   }
 }

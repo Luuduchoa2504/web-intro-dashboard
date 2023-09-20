@@ -1,0 +1,28 @@
+  <h1 mat-dialog-title>Create Ticket</h1>
+  <div mat-dialog-content>
+    <form [formGroup]="ticketForm">
+      <mat-form-field class="input-field">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" class="full-width">
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" class="full-width">
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phone" class="full-width">
+      </mat-form-field>
+
+      <mat-form-field class="textarea-field">
+        <mat-label>Content</mat-label>
+        <textarea matInput formControlName="content" class="full-width"></textarea>
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button [disabled]="ticketForm.invalid" (click)="onSave()">Save</button>
+  </div>

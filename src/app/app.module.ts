@@ -40,6 +40,9 @@ import { AdminManagementComponent } from './pages/admin-management/admin-managem
 import { TicketManagementComponent } from './pages/ticket-management/ticket-management.component';
 import { AddEmailModalComponent } from './pages/email-management/add-email-modal/add-email-modal.component';
 import { MaterialModule } from './material.module';
+import {AddTicketModalComponent} from "@pages/ticket-management/add-ticket-modal/add-ticket-modal.component";
+import {AddAccountModalComponent} from "@pages/account-management/add-account-modal/add-account-modal.component";
+import {AddAdminModalComponent} from "@pages/admin-management/add-admin-modal/add-admin-modal.component";
 
 registerLocaleData(localeEn, 'en-EN');
 
@@ -70,7 +73,10 @@ registerLocaleData(localeEn, 'en-EN');
         AccountManagementComponent,
         AdminManagementComponent,
         TicketManagementComponent,
-        AddEmailModalComponent
+        AddEmailModalComponent,
+        AddTicketModalComponent,
+        AddAccountModalComponent,
+        AddAdminModalComponent
     ],
     imports: [
         ProfabricComponentsModule,

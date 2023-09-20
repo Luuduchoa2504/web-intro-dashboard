@@ -26,7 +26,6 @@ export class EmailService {
   }
 
   edit(req: any) {
-    console.log(req)
     const payload = { email: req.email}
     return this.http.put(`${this.resourceUrl}/${req._id}`, payload)
   }

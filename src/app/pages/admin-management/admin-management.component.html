@@ -1,6 +1,12 @@
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Table Example</h3>
+    <h3 class="card-title">Admin Management</h3>
+    <div align="end">
+      <button mat-raised-button class="btn btn-primary btn-sm" (click)="openDialog()">
+        <i class="fas fa-plus"></i>
+        Add new
+      </button>
+    </div>
   </div>
   <div class="card-body">
     <table id="dataTable" class="table table-bordered">
@@ -10,6 +16,7 @@
         <th>Full Name</th>
         <th>Email</th>
         <th>Phone Number</th>
+        <th>Role</th>
         <th></th>
       </tr>
       </thead>
@@ -19,11 +26,10 @@
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.phone }}</td>
+        <td *ngIf="user.role === 1 ">{{ 'Admin' }}</td>
+        <td *ngIf="user.role === 2 ">{{ 'Super Admin' }}</td>
         <td>
-          <button class="btn btn-primary btn-sm" (click)="onCreate()">
-            <i class="fas fa-plus"></i>
-          </button>
-          <button class="btn btn-primary btn-sm" (click)="onCreate()">
+          <button class="btn btn-primary btn-sm" (click)="onEdit(i)">
             <i class="fas fa-edit"></i>
           </button>
           <button class="btn btn-danger btn-sm" (click)="onDelete(user._id)">
