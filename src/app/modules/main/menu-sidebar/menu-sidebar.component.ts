@@ -28,13 +28,12 @@ export class MenuSidebarComponent implements OnInit {
             this.classes = `${BASE_CLASSES} ${state.sidebarSkin}`;
         });
         this.user = this.appService.user;
-        // this.filterMenuByRole();
-      // console.log(this.user.role === 1)
+        this.menu = this.filterMenuByRole();
     }
 
-    filterMenuByRole() {
+    filterMenuByRole() {      
       if (this.user.role === 1) {
-        return MENU.filter((item) => ['Email', 'Ticket', 'User Registered'].includes(item.name));
+        return MENU.filter((item) => ['Dashboard','Email', 'Ticket', 'User Registered'].includes(item.name));        
       } else {
         return MENU;
       }

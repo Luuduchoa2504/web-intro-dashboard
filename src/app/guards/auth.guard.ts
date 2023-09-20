@@ -45,7 +45,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         }
 
         this.appService.user = await this.appService.getAdminProfile().toPromise();
-       console.log(this.appService.user)
        return this.appService.user ? true : false;
     }
 }
