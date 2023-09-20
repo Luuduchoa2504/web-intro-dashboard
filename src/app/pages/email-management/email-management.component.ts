@@ -37,6 +37,7 @@ export class EmailManagementComponent {
       width: '500px',
     }).afterClosed().subscribe((res) => {
       this.emailService.create(res.value.email).subscribe(() => {
+        this.toast.success('Tạo thành công', 'Thành công')
         this.loadData();
       })
     })
@@ -49,18 +50,18 @@ export class EmailManagementComponent {
         email: this.emails[index]
       }
     }).afterClosed().subscribe((res) => {
+      console.log(res)
       this.emailService.edit(res).subscribe(() => {
+        this.toast.success('Cập nhật thành công', 'Thành công')
         this.loadData()
       })
     })
   }
 
   onDelete(id) {
-    // console.log(id);
     this.emailService.delete(id).subscribe((res) => {
       this.toast.success('Xoá thành công', 'Thành công')
       this.loadData();
     });
-
   }
 }

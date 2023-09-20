@@ -18,14 +18,17 @@ export class AddEmailModalComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    console.log(this.data)
     this.emailForm.get('email')?.patchValue(this.data?.email?.email);
   }
   onCancel() {
     this.dialogRef.close()
   }
   onSave() {
-    const req = { _id: this.data.email._id, email: this.emailForm.get('email').value}
-    this.dialogRef.close(req)
+    if (this.data) {
+      const req = { _id: this.data.email._id, email: this.emailForm.get('email').value}
+      this.dialogRef.close(req)
+    } else {
+      this.dialogRef.close(this.emailForm)
+    }
   }
 }
