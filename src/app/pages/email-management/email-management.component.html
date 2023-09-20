@@ -1,6 +1,12 @@
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Table Example</h3>
+    <h3 class="card-title">Email Management</h3>
+    <div align="end">
+      <button mat-raised-button class="btn btn-primary btn-sm" (click)="openDialog()">
+        <i class="fas fa-plus"></i>
+        Add
+      </button>
+    </div>
   </div>
   <div class="card-body">
     <table id="dataTable" class="table table-bordered">
@@ -16,10 +22,7 @@
         <td>{{ i + 1 }}</td>
         <td>{{ email.email }}</td>
         <td>
-          <button class="btn btn-primary btn-sm" (click)="openDialog()">
-            <i class="fas fa-plus"></i>
-          </button>
-          <button class="btn btn-primary btn-sm" (click)="onCreate()">
+          <button class="btn btn-primary btn-sm" (click)="onEdit(i)">
             <i class="fas fa-edit"></i>
           </button>
           <button class="btn btn-danger btn-sm" (click)="onDelete(email._id)">

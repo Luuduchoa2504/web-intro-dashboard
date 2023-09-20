@@ -19,4 +19,14 @@ export class EmailService {
   delete(id: any): Observable<any> {
     return this.http.delete(`${this.resourceUrl}/${id}`);
   }
+
+  create(req : any) {
+    const payload = { email: req }
+    return this.http.post(`${this.resourceUrl}`, payload)
+  }
+
+  edit(req: any) {
+    const payload = { email: req.email}
+    return this.http.put(`${this.resourceUrl}/${req._id}`, payload)
+  }
 }

@@ -1,6 +1,13 @@
-<form>
-    <input
-        class="input-form"
-        formController="email"
-    />
-</form>
+<h1 mat-dialog-title>Create Email</h1>
+<div mat-dialog-content>
+  <form [formGroup]="emailForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+  </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button [disabled]="emailForm.invalid" (click)="onSave()">Save</button>
+</div>

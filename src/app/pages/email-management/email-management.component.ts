@@ -13,7 +13,7 @@ export class EmailManagementComponent {
   emails: any[] = [];
 
   constructor(
-    private emailService: EmailService, 
+    private emailService: EmailService,
     private toast: ToastrService,
     private dialog: MatDialog,
     ) { }
@@ -32,14 +32,27 @@ export class EmailManagementComponent {
     });
   }
 
-  onCreate() {
-    
-  }
-
   openDialog() {
     this.dialog.open(AddEmailModalComponent, {
-      
-    }).afterClosed()
+      width: '500px',
+    }).afterClosed().subscribe((res) => {
+      this.emailService.create(res.value.email).subscribe(() => {
+        this.loadData();
+      })
+    })
+  }
+
+  onEdit(index) {
+    this.dialog.open(AddEmailModalComponent, {
+      width: '500px',
+      data: {
+        email: this.emails[index]
+      }
+    }).afterClosed().subscribe((res) => {
+      this.emailService.edit(res).subscribe(() => {
+        this.loadData()
+      })
+    })
   }
 
   onDelete(id) {
