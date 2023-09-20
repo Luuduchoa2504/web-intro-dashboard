@@ -58,10 +58,7 @@ export class AppService {
             'Authorization',
             localStorage.getItem('token')
           );
-          console.log('b', this.http.get(`${this.resourceUrl}/api/info`, this.httpOptions));
-          
-          
-        return this.user = this.http.get(`${this.resourceUrl}/api/info`, this.httpOptions);
+        return this.http.get(`${this.resourceUrl}/api/info`, this.httpOptions);
     }
 
     async loginByGoogle() {

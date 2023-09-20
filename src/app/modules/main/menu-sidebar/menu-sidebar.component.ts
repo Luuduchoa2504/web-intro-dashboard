@@ -28,8 +28,19 @@ export class MenuSidebarComponent implements OnInit {
             this.classes = `${BASE_CLASSES} ${state.sidebarSkin}`;
         });
         this.user = this.appService.user;
+        // this.filterMenuByRole();
+      // console.log(this.user.role === 1)
+    }
+
+    filterMenuByRole() {
+      if (this.user.role === 1) {
+        return MENU.filter((item) => ['Email', 'Ticket', 'User Registered'].includes(item.name));
+      } else {
+        return MENU;
+      }
     }
 }
+
 
 export const MENU = [
     {
@@ -37,35 +48,24 @@ export const MENU = [
         iconClasses: 'fas fa-tachometer-alt',
         path: ['/']
     },
-    // {
-    //     name: 'Blank',
-    //     iconClasses: 'fas fa-file',
-    //     path: ['/blank']
-    // },
     {
-        name: 'Management',
-        iconClasses: 'fas fa-folder',        
-        children: [
-            {
-                name: 'Email',
-                iconClasses: 'far fa-envelope',
-                path: ['/email-management']
-            },
-            {
-                name: 'Ticket',
-                iconClasses: 'far fa-file',
-                path: ['/ticket-management']
-            },
-            {
-                name: 'User Registered',
-                iconClasses: 'far fa-user',
-                path: ['/account-management']
-            },
-            {
-                name: 'User Internal',
-                iconClasses: 'ion ion-person',
-                path: ['/admin-management']
-            }
-        ]
-    }
+      name: 'Email',
+      iconClasses: 'far fa-envelope',
+      path: ['/email-management']
+    },
+    {
+      name: 'Ticket',
+      iconClasses: 'far fa-file',
+      path: ['/ticket-management']
+    },
+    {
+      name: 'User Registered',
+      iconClasses: 'far fa-user',
+      path: ['/account-management']
+    },
+    {
+      name: 'User Internal',
+      iconClasses: 'ion ion-person',
+      path: ['/admin-management']
+    },
 ];

@@ -55,7 +55,10 @@ export class LoginComponent implements OnInit, OnDestroy {
             this.appService.login(this.loginForm.value)
                 .subscribe((res: any) => {
                     localStorage.setItem('token', `${res.accessToken}`)
+                  setTimeout(() => {
                     this.router.navigate(['/']);
+                  },500)
+
                 })
         } else {
             this.toastr.error('Form is not valid')

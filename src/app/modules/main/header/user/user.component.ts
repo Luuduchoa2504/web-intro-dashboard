@@ -12,12 +12,8 @@ export class UserComponent implements OnInit {
 
     constructor(private appService: AppService) {}
 
-    ngOnInit(): void {        
-        this.appService.user.subscribe(res => {
-            this.user = res;
-            console.log(this.user);
-                        
-        });
+    ngOnInit(): void {
+        this.user = this.appService?.user;
     }
 
     logout() {
