@@ -10,12 +10,18 @@
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" class="full-width">
     </mat-form-field>
+    <p class="err-text mt-1" *ngIf="userForm.get('email')?.hasError('email') && userForm.get('email')?.touched">
+      Sai định dạng email. Vui lòng nhập lại!
+    </p>
 
     <mat-form-field class="input-field">
       <mat-label>Phone Number</mat-label>
       <input matInput formControlName="phone" class="full-width">
     </mat-form-field>
-    <mat-form-field class="input-field">
+    <p class="err-text mt-1" *ngIf="userForm.get('phone')?.hasError('invalidPhone') && userForm.get('phone')?.touched">
+      Số điện thoại không tồn tại! Vui lòng kiểm tra!
+    </p>
+    <mat-form-field class="input-field" *ngIf="showPasswordField()">
       <mat-label>Password</mat-label>
       <input matInput type="password" formControlName="password" class="full-width">
     </mat-form-field>

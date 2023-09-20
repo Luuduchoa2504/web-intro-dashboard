@@ -40,7 +40,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     }
 
      async getProfile(state: RouterStateSnapshot) {
-        if (this.appService.user !== null && this.appService.user.role === 1 ) {
+        if (this.appService.user !== null && (this.appService.user.role === 1 || this.appService.user.role ===2 ) ) {
             return true;
         }
 

@@ -13,7 +13,7 @@ export class AddAccountModalComponent {
     name: [null, [Validators.required]],
     email: [null, [Validators.required, Validators.email]],
     phone: [null,  [Validators.required, this.phoneValidator()]],
-    password: [null, [Validators.required]],
+    password: [null],
   });
   constructor(
     private fb: FormBuilder,
@@ -27,6 +27,10 @@ export class AddAccountModalComponent {
     this.userForm.get('email')?.patchValue(this.data?.data?.email);
     this.userForm.get('phone')?.patchValue(this.data?.data?.phone);
     this.userForm.get('password')?.patchValue(this.data?.data?.password);
+  }
+
+  showPasswordField(): Boolean {
+    return this.data?.data ? false : true;
   }
 
   phoneValidator(): ValidatorFn {

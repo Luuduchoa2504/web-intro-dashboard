@@ -13,7 +13,7 @@ export class AddAdminModalComponent {
     name: [null, [Validators.required]],
     email: [null, [Validators.required, Validators.email]],
     phone: [null,  [Validators.required, this.phoneValidator()]],
-    password: [null, [Validators.required]],
+    password: [null],
     role: [null],
   });
   roles = [
@@ -48,6 +48,11 @@ export class AddAdminModalComponent {
       return null;
     };
   }
+
+  showPasswordField(): Boolean {
+    return this.data?.data ? false : true;
+  }
+
   onCancel() {
     this.dialogRef.close()
   }
