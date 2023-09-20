@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {EmailService} from "@pages/email-management/services/email.service";
 import {ToastrService} from "ngx-toastr";
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { AddEmailModalComponent } from './add-email-modal/add-email-modal.component';
 
 @Component({
   selector: 'app-email-management',
@@ -10,7 +12,11 @@ import {ToastrService} from "ngx-toastr";
 export class EmailManagementComponent {
   emails: any[] = [];
 
-  constructor(private emailService: EmailService, private toast: ToastrService) { }
+  constructor(
+    private emailService: EmailService, 
+    private toast: ToastrService,
+    private dialog: MatDialog,
+    ) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -28,6 +34,12 @@ export class EmailManagementComponent {
 
   onCreate() {
     
+  }
+
+  openDialog() {
+    this.dialog.open(AddEmailModalComponent, {
+      
+    }).afterClosed()
   }
 
   onDelete(id) {

@@ -27,8 +27,9 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "src/styles.scss",
-                            "node_modules/ngx-toastr/toastr.css"
+                          "@angular/material/prebuilt-themes/indigo-pink.css",
+                          "src/styles.scss",
+                          "node_modules/ngx-toastr/toastr.css"
                         ],
                         "scripts": [],
                         "vendorChunk": true,
@@ -104,8 +105,9 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "src/styles.scss",
-                            "node_modules/ngx-toastr/toastr.css"
+                          "@angular/material/prebuilt-themes/indigo-pink.css",
+                          "src/styles.scss",
+                          "node_modules/ngx-toastr/toastr.css"
                         ],
                         "scripts": []
                     }

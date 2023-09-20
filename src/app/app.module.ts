@@ -38,6 +38,8 @@ import { EmailManagementComponent } from './pages/email-management/email-managem
 import { AccountManagementComponent } from './pages/account-management/account-management.component';
 import { AdminManagementComponent } from './pages/admin-management/admin-management.component';
 import { TicketManagementComponent } from './pages/ticket-management/ticket-management.component';
+import { AddEmailModalComponent } from './pages/email-management/add-email-modal/add-email-modal.component';
+import { MaterialModule } from './material.module';
 
 registerLocaleData(localeEn, 'en-EN');
 
@@ -67,7 +69,8 @@ registerLocaleData(localeEn, 'en-EN');
         EmailManagementComponent,
         AccountManagementComponent,
         AdminManagementComponent,
-        TicketManagementComponent
+        TicketManagementComponent,
+        AddEmailModalComponent
     ],
     imports: [
         ProfabricComponentsModule,
@@ -77,6 +80,7 @@ registerLocaleData(localeEn, 'en-EN');
         HttpClientModule,
         AppRoutingModule,
         ReactiveFormsModule,
+        MaterialModule,
         BrowserAnimationsModule,
         ToastrModule.forRoot({
             timeOut: 3000,
