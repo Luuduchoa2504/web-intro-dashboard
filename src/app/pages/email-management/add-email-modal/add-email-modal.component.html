@@ -5,6 +5,9 @@
     <mat-label>Email</mat-label>
     <input matInput formControlName="email">
   </mat-form-field>
+  <p class="err-text mt-1" *ngIf="emailForm.get('email')?.hasError('email') && emailForm.get('email')?.touched">
+    Sai định dạng email. Vui lòng nhập lại!
+  </p>
   </form>
 </div>
 <div mat-dialog-actions align="end">

@@ -1,0 +1,9 @@
+.err-text {
+    color: red;
+    ::ng-deep {
+      .navigate {
+        text-decoration: underline;
+        font-weight: 600;
+      }
+    }
+  }

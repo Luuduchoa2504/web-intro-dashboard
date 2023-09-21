@@ -10,11 +10,17 @@
         <mat-label>Email</mat-label>
         <input matInput formControlName="email" class="full-width">
       </mat-form-field>
+      <p class="err-text mt-1" *ngIf="ticketForm.get('email')?.hasError('email') && ticketForm.get('email')?.touched">
+        Sai định dạng email. Vui lòng nhập lại!
+      </p>
 
       <mat-form-field class="input-field">
         <mat-label>Phone Number</mat-label>
         <input matInput formControlName="phone" class="full-width">
       </mat-form-field>
+      <p class="err-text mt-1" *ngIf="ticketForm.get('phone')?.hasError('invalidPhone') && ticketForm.get('phone')?.touched">
+        Số điện thoại không tồn tại! Vui lòng kiểm tra!
+      </p>
 
       <mat-form-field class="textarea-field">
         <mat-label>Content</mat-label>
